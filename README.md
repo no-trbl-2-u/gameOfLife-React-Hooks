@@ -12,7 +12,7 @@ It is an interesting attempt at simulating civilization. Using a hand full of ru
 >* Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
 ## To give the simulation a try...
-TODO:Create User story for this portion.
+TODO: Create User story for this portion.
 
 ## To play with the code...
 

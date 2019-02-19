@@ -1,37 +1,38 @@
 import React, { useEffect } from 'react'
 import Box from './Box';
 
+//TODO: "Non Iterable instance on spread >.<"
 function Grid (props) {
   
   const { gridFull, cols, selectBox } = props
   const width = (cols * 16) + 1;
 
   const renderedGrid =
-    [...gridFull].map(
-      (rows, i) =>
-        rows.map(
-          (cell, j) => {
-            // Key
-            let boxId = i + "_" + j
-            return (
-              // JSX Element
-              <Box
-                boxClass={ props.gridFull[i][j] ? "box on" : "box off" }
-                key={ boxId }
-                boxId={ boxId }
-                row={ i }
-                col={ j }
-                selectBox={ selectBox }
-              />
-            )
-          }
-        )
+    // Iterate through both arrays...
+    [...gridFull].map((rows, i) => rows.map((cell, j) => {
+      
+      // Create Key
+      let boxId = i + "_" + j
+
+      return (
+        // JSX Element
+        <Box
+          boxClass={ props.gridFull[i][j] ? "box on" : "box off" }
+          key={ boxId }
+          boxID={ boxId }
+          row={ i }
+          col={ j }
+          selectBox={ selectBox }
+        />
+      )
+    }
+  )
     )
 
   return (
-    <div className="grid" style={ {width: width} }>
+    <section className="grid" style={ {width: width} }>
       { renderedGrid }
-    </div>
+    </section>
   )
 }
 

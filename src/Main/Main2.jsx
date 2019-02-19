@@ -5,58 +5,55 @@ import Grid from '../Components/Grid';
 function Main () {
   
   // Constants
-  const speed = 100;
-  const rows = 30;
-  const cols = 50;
+  const speed = 100; // speed :: number
+  const rows = 30;   // rows  :: number
+  const cols = 50;   // cols  :: number
 
-  // Internal State
+  // generation    :: State Int
+  // setGeneration :: State Int -> () State Int
   const [ generation, setGeneration ] = useState(0)
-  
+
+  // gridFull    :: State [[Bool]]
+  // setGridFull :: State [[Bool]] -> () State [[Bool]]
   const [gridFull, setGridFull] = useState(
     Array(rows).fill().map(() => Array(cols).fill(false))
   )
 
 
+  // selectBox :: (Int, Int) -> () Event State
   const selectBox = (row, col) => {
+    const gridCopy = [...gridFull]
     const newGrid =
-      [...gridFull][row][col] = !newGrid[row][col]
+      gridCopy[row][col] = !gridCopy[row][col]
     
     setGridFull(newGrid)
   }
 
+
+  // seed :: () -> () Event State
   const seed = () => {
-    // Copy the array
-    // let gridCopy = [...gridFull]
-
-    // Go through each cell, if its random # *4 = 1, activate
-    // for (let i=0; i< rows; i++){
-    //   for (let j=0; j< cols; j++){
-    //     if (Math.floor(Math.random() * 4) === 1){
-    //       gridCopy[i][j] = true;
-    //     }
-    //   }
-    // }
-    
-    const gridCopy = [...gridFull].map(
-      (rows, i) =>
-        rows.map(
-          (cols, j) => {
-            return (
-              (Math.floor(Math.random() * 4) === 1)
-              ? gridCopy[i][j] = true
-              : gridCopy[i][j] = false
-            )
-          }
+    setGridFull(
+      [...gridFull].map(rows => rows.map(cols =>
+        (Math.floor(Math.random() * 4) === 1)
+          ? true
+          : false
         )
+      )
     )
-
-  // Set Internal state of new grid
-  setGridFull(gridCopy)
-  
   }
   
+  // Seed the initial group of activated boxes
   // Empty array as second argument causes it to only run once
   useEffect( () => seed(), [] )
+
+  // logger
+  useEffect( () => console.log(
+    `State:
+      Generation: ${generation},
+      GridFull: ${gridFull}
+    `
+    )
+  )
 
   return (
     <div>
