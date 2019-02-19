@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import Box from './Box';
 
-//TODO: "Non Iterable instance on spread >.<"
 function Grid (props) {
   
   const { gridFull, cols, selectBox } = props
@@ -10,7 +9,7 @@ function Grid (props) {
   const renderedGrid =
     // Iterate through both arrays...
     [...gridFull].map((rows, i) => rows.map((cell, j) => {
-      
+
       // Create Key
       let boxId = i + "_" + j
 
