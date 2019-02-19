@@ -56,16 +56,16 @@ function Main () {
   )
 
   return (
-    <div>
-      <h1>Game of Life</h1>
+    <section className="Main">
+      <h1 className="App-header">Game of Life</h1>
       <Grid
         gridFull={ gridFull }
         rows={ rows }
         cols={ cols }
         selectBox={ selectBox }
       />
-      <h2>Generations: { generation } </h2>
-    </div>
+      <h2 className="generation">Generations: { generation } </h2>
+    </section>
   )
 }
 
