@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Main from './App/Main'
+import Main from './Main/Main2'
 import './Main.css';
 
 

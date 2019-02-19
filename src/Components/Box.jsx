@@ -2,15 +2,13 @@ import React from 'react';
 
 function Box (props) {
 
-  const selectBox = () => {
-    props.selectBox(props.row, props.col)
-  }
+  const { row, col, boxClass, id, selectBox } = props
 
     return (
       <div 
-        className={props.boxClass}
-        id={props.id}
-        onClick={selectBox}
+        className={ boxClass }
+        id={ id }
+        onClick={ () => selectBox(row, col) }
       />
   );
 }
