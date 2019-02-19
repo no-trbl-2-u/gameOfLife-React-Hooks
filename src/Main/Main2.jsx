@@ -19,16 +19,15 @@ function Main () {
     Array(rows).fill().map(() => Array(cols).fill(false))
   )
 
-
   // selectBox :: (Int, Int) -> () Event State
   const selectBox = (row, col) => {
+    // Copy Grid
     const gridCopy = [...gridFull]
-    const newGrid =
-      gridCopy[row][col] = !gridCopy[row][col]
-    
-    setGridFull(newGrid)
+    // Mutate Copy
+    gridCopy[row][col] = !gridCopy[row][col]
+    // Set State w/ new Grid
+    setGridFull(gridCopy)
   }
-
 
   // seed :: () -> () Event State
   const seed = () => {
@@ -43,10 +42,9 @@ function Main () {
   }
   
   // Seed the initial group of activated boxes
-  // Empty array as second argument causes it to only run once
-  useEffect( () => seed(), [] )
+  useEffect( () => seed(), [] ) // Empty array to only trigger onLoad
 
-  // logger
+  // logger (Maybe split out into a function that parameterizes the state logging)
   useEffect( () => console.log(
     `State:
       Generation: ${generation},
