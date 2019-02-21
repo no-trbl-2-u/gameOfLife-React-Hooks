@@ -1,7 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-// Properties
+
+function Box ({row, col, boxClass, boxID, selectBox}) {
+  return (
+    <div 
+      className={ boxClass }
+      boxid={ boxID }
+      onClick={ () => selectBox(row, col) }
+    />
+  );
+}
+
 Box.propTypes = {
   row: PropTypes.number.isRequired,
   col: PropTypes.number.isRequired,
@@ -11,17 +21,4 @@ Box.propTypes = {
 //selectBox :: Int -> Int -> State Event
 };
 
-// Definition
-function Box (props) {
-
-  const { row, col, boxClass, boxID, selectBox } = props
-
-    return (
-      <div 
-        className={ boxClass }
-        boxid={ boxID }
-        onClick={ () => selectBox(row, col) }
-      />
-  );
-}
 export default Box

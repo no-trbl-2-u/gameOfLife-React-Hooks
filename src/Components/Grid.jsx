@@ -1,38 +1,35 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import Box from './Box';
 
-function Grid (props) {
-  
-  const { gridFull, cols, selectBox } = props
+function Grid ({gridFull, cols, selectBox}) {
   const width = (cols * 16) + 1;
-
   const renderedGrid =
-    // Iterate through both arrays...
     [...gridFull].map((rows, i) => rows.map((cell, j) => {
-
-      // Create Key
-      let boxId = i + "_" + j
-
       return (
-        // JSX Element
         <Box
-          boxClass={ props.gridFull[i][j] ? "box on" : "box off" }
-          key={ boxId }
-          boxID={ boxId }
+          boxClass={ gridFull[i][j] ? "box on" : "box off" }
+          key={ i + "_" + j }
+          boxID={ i + "_" + j }
           row={ i }
           col={ j }
           selectBox={ selectBox }
         />
       )
-    }
+    })
   )
-    )
 
   return (
     <section className="grid" style={ {width: width} }>
       { renderedGrid }
     </section>
   )
+}
+
+Grid.propTypes = {
+  gridFull: PropTypes.array.isRequired,
+  cols: PropTypes.number.isRequired,
+  selectBox: PropTypes.func.isRequired
 }
 
 export default Grid
