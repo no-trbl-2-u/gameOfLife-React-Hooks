@@ -41,14 +41,11 @@ html {
   overflow: hidden;
   border-radius: 7px;
 }
-  
-.App-header, .generation {
+
+.App-header {
   color: white;
   margin: auto;
   text-align: center;
-}
-
-.App-header {
   overflow: visible;
   font-size: 48px;
   width: 50%;
@@ -56,12 +53,42 @@ html {
   height: 40px;
 }
 
-.generation {
-  background-color: white;
-  color: black;
-  border-radius: 40px;
-  border: 2px solid purple;
-  box-shadow: 4px 4px 8px white;
+.ButtonContainer {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  width: 40%;
+  text-align: center;
+  margin: auto;
   margin-top: 10px;
-  width: 20%;
+  box-shadow: inset 0 0 50px black;
+}
+
+.ButtonContainer button {
+  margin: 20px;
+  margin-top: 0px;
+  transform: scale(1.5);
+  border-radius: 25px;
+  background-color: lightcyan;
+  box-shadow: 2px 2px 4px black;
+  background: radial-gradient(25px, white, rgba(136, 0, 136, 0.8));
+  text-shadow: 2px 1px 1px rgb(94, 94, 94) ;
+  /* box-shadow: inset 0 0 15px purple; */
+
+}
+
+/* TODO: Clean up the transform animation */
+.ButtonContainer button:active {
+  box-shadow: 1px 1px 2px black;
+  transform: translate(2px);
+}
+
+.ButtonContainer h2 {
+  width: 30%;
+  margin: auto;
+  margin-bottom: 8px;
+
+  /* text-shadow: 2px 2px 4px rgba(255, 255, 255, 1); */
+  text-shadow: 2px 2px 4px grey;
+  /* border: 1px solid black; */
+  /* border-radius: 25px; */
 }

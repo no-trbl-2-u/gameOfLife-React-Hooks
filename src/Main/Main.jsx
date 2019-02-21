@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Grid from '../Components/Grid';
+import ButtonContainer from '../Components/ButtonContainer';
 
 let intervalID = 0;
 
@@ -90,17 +91,21 @@ function Main () {
   return (
     <section className="Main">
       <h1 className="App-header">Game of Life</h1>
+      
       <Grid
         gridFull={ gridFull }
         rows={ rows }
         cols={ cols }
         selectBox={ selectBox }
       />
-      <h2 className="generation">Generations: { generation } </h2>
-      <button onClick={ playButton }>Start</button>
-      <button onClick={ stopButton }>Stop</button>
-      <button onClick={ resetButton }>Reset</button>
-      <button onClick={ seed }>Seed</button> 
+      
+      <ButtonContainer
+        generation={ generation }
+        playButton={ playButton }
+        stopButton={ stopButton }
+        resetButton={ resetButton }
+        seed={ seed }
+      />
     </section>
   )
 }
