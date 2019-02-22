@@ -18,7 +18,6 @@ Box.propTypes = {
   boxClass: PropTypes.string.isRequired,
   boxID: PropTypes.string.isRequired,
   selectBox: PropTypes.func.isRequired
-//selectBox :: Int -> Int -> State Event
 };
 
 export default Box

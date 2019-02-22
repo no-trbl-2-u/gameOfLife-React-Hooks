@@ -82,8 +82,8 @@ function Main () {
     clearInterval(intervalID)
   }
 
-  const resetButton = () => {
-    clearInterval(intervalID)
+  const clearButton = () => {
+    // clearInterval(intervalID)
     setGridFull(Array(rows).fill().map(() => Array(cols).fill(false)))
   }
 
@@ -103,7 +103,7 @@ function Main () {
         generation={ generation }
         playButton={ playButton }
         stopButton={ stopButton }
-        resetButton={ resetButton }
+        clearButton={ clearButton }
         seed={ seed }
       />
     </section>
