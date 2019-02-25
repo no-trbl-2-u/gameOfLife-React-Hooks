@@ -53,6 +53,10 @@ html {
   height: 40px;
 }
 
+button:focus {
+  outline:0;
+}
+
 .ButtonContainer {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 25px;
@@ -66,20 +70,24 @@ html {
 .ButtonContainer button {
   margin: 20px;
   margin-top: 0px;
-  transform: scale(1.5);
+
+  font-size: large;
+  height: 40px;
+  width: 12%;
   border-radius: 25px;
+
   background-color: lightcyan;
-  box-shadow: 2px 2px 4px black;
   background: radial-gradient(25px, white, rgba(136, 0, 136, 0.8));
+
+  box-shadow: 2px 2px 4px black;
   text-shadow: 2px 1px 1px rgb(94, 94, 94) ;
   /* box-shadow: inset 0 0 15px purple; */
 
 }
 
-/* TODO: Clean up the transform animation */
 .ButtonContainer button:active {
   box-shadow: 1px 1px 2px black;
-  transform: translate(2px);
+  transform: translateY(2px);
 }
 
 .ButtonContainer h2 {
@@ -88,7 +96,7 @@ html {
   margin-bottom: 8px;
 
   /* text-shadow: 2px 2px 4px rgba(255, 255, 255, 1); */
-  text-shadow: 2px 2px 4px grey;
+  text-shadow: 2px 2px 4px rgb(224, 223, 223);
   /* border: 1px solid black; */
   /* border-radius: 25px; */
 }

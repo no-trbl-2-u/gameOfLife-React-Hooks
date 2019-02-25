@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Grid from '../Components/Grid';
 import ButtonContainer from '../Components/ButtonContainer';
 
+// Global intervalID for clearInterval
 let intervalID = 0;
 
 function Main () {
@@ -13,7 +14,7 @@ function Main () {
 
   // generation    :: State Int
   // setGeneration :: State Int -> () State Int
-  const [ generation, setGeneration ] = useState(0)
+  let [generation, setGeneration] = useState(0)
 
   // gridFull    :: State [[Bool]]
   // setGridFull :: State [[Bool]] -> () State [[Bool]]
@@ -40,10 +41,8 @@ function Main () {
     )
   }
   
-  // onLoad
-  useEffect( () => seed(), [] )
 
-  // play :: () -> State Change
+  // play :: () -> State [[Bool]]
   const play = () => {
 
     // Make copies
@@ -69,21 +68,26 @@ function Main () {
 
     // Set Internal State
       setGridFull(g2)
-      setGeneration(generation + 1)
+      setGeneration(generation++)
   }
 
+  // onLoad
+  useEffect( () => seed(), [] )
 
+  // playButton :: () -> State Interval
 	const playButton = () => {
 		clearInterval(intervalID);
 		intervalID = setInterval(play, speed);
   }
   
+  // stopButton :: () -> State Interval
   const stopButton = () => {
     clearInterval(intervalID)
   }
 
+  // stopButton :: () -> State Int, State [[Bool]]
   const clearButton = () => {
-    // clearInterval(intervalID)
+    setGeneration(0)
     setGridFull(Array(rows).fill().map(() => Array(cols).fill(false)))
   }
 

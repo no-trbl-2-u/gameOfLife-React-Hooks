@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Box from './Box';
 
@@ -8,7 +8,7 @@ function Grid ({gridFull, cols, selectBox}) {
     [...gridFull].map((rows, i) => rows.map((cell, j) => {
       return (
         <Box
-          boxClass={ gridFull[i][j] ? "box on" : "box off" }
+          boxClass={ cell ? "box on" : "box off" }
           key={ i + "_" + j }
           boxID={ i + "_" + j }
           row={ i }

@@ -12,7 +12,9 @@ It is an interesting attempt at simulating civilization. Using a hand full of ru
 >* Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
 ## To give the simulation a try...
-TODO: Create User story for this portion.
+Either use the "Seed" button to generate your initial civilation
+Or draw your own custom shapes and use the "Start" button to begin the simulation.
+Use "Stop" to stop the simulation and "Clear" to clear both the board and the generation count.
 
 ## To play with the code...
 
